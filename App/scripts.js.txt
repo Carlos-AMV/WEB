@@ -1,0 +1,80 @@
+// scripts.js
+document.addEventListener('DOMContentLoaded', () => {
+    // Cambia el color de fondo cada visita
+    document.body.style.backgroundColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+
+    // Configuración de color
+    const settingsButton = document.getElementById('settings');
+    if (settingsButton) {
+        settingsButton.addEventListener('click', () => {
+            const newColor = prompt('Introduce un color en formato hexadecimal (ej. #ff0000):', '#ffffff');
+            if (newColor) {
+                document.body.style.backgroundColor = newColor;
+            }
+        });
+    }
+
+    // Botón Ingresar
+    const loginButton = document.getElementById('login');
+    if (loginButton) {
+        loginButton.addEventListener('click', () => {
+            window.location.href = 'notes.html';
+        });
+    }
+
+    // Guardar tarea y notificación
+    const saveTaskButton = document.getElementById('save-task');
+    if (saveTaskButton) {
+        saveTaskButton.addEventListener('click', () => {
+            const date = document.getElementById('task-date').value;
+            const time = document.getElementById('task-time').value;
+            const note = document.getElementById('task-note').value;
+
+            if (date && time && note) {
+                const taskDateTime = new Date(`${date}T${time}`);
+                const now = new Date();
+
+                if (taskDateTime > now) {
+                    const timeUntilTask = taskDateTime - now;
+                    setTimeout(() => {
+                        const notification = document.getElementById('notification');
+                        notification.textContent = `Hora de la tarea: ${note}`;
+                        notification.style.backgroundColor = '#ffdddd';
+                        notification.style.padding = '10px';
+                    }, timeUntilTask);
+                } else {
+                    document.getElementById('notification').textContent = 'La fecha y hora seleccionadas ya han pasado.';
+                }
+
+                // Añadir la nota a la lista
+                const notesList = document.getElementById('notes-list');
+                const listItem = document.createElement('li');
+                listItem.textContent = note;
+                notesList.appendChild(listItem);
+
+                // Eliminar nota después de 24 horas
+                setTimeout(() => {
+                    listItem.remove();
+                }, 24 * 60 * 60 * 1000); // 24 horas
+            } else {
+                document.getElementById('notification').textContent = 'Por favor, completa todos los campos.';
+            }
+        });
+    }
+
+    // Botón Regresar
+    const backButton = document.getElementById('back');
+    if (backButton) {
+        backButton.addEventListener('click', () => {
+            window.history.back();
+        });
+    }
+
+    // Botón Salir
+    const exitButton = document.getElementById('exit');
+    if (exitButton) {
+        exitButton.addEventListener('click', () => {
+            window.close();
+        });
+    }
+});

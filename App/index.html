@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda Digital - Ingreso</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>Agenda Digital</h1>
+            <button id="settings">Configuración de Color</button>
+        </header>
+        
+        <main>
+            <section id="login-section">
+                <h2>Ingreso</h2>
+                <p>Nombre: <input type="text" id="name" placeholder="Tu nombre"></p>
+                <p>Edad: <input type="number" id="age" placeholder="Tu edad"></p>
+                <p>Contraseña: <input type="password" id="password" placeholder="Tu contraseña"></p>
+                <button id="login">Ingresar</button>
+            </section>
+        </main>
+        
+        <footer>
+            <button id="exit">Salir</button>
+        </footer>
+    </div>
+    
+    <script src="scripts.js"></script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda Digital - Notas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>Gestionar Notas</h1>
+        </header>
+        
+        <main>
+            <section id="notes-section">
+                <input type="date" id="task-date">
+                <input type="time" id="task-time">
+                <textarea id="task-note" placeholder="Escribe tu nota aquí..."></textarea>
+                <button id="save-task">Guardar Tarea</button>
+                <div id="notification"></div>
+                <ul id="notes-list"></ul>
+            </section>
+        </main>
+        
+        <footer>
+            <button id="back">Regresar</button>
+        </footer>
+    </div>
+    
+    <script src="scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #f4f4f4;
+    padding: 10px;
+    text-align: center;
+}
+
+main {
+    flex: 1;
+    padding: 10px;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+textarea, input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+footer {
+    background-color: #f4f4f4;
+    padding: 10px;
+    text-align: center;
+}
+
+#notification {
+    margin-top: 10px;
+    color: red;
+}
+
+#notes-list {
+    list-style: none;
+    padding: 0;
+}
+
+#notes-list li {
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    input, textarea {
+        width: calc(100% - 20px);
+    }
+}
